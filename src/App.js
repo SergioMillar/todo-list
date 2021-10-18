@@ -18,9 +18,10 @@ const App = () => {
     setTasks(tasks.concat(taskObj))
     setNewTask('')
     }
-    // const deleteTask = (id) => {
-    //   setTasks(tasks.filter(note => note.id !== id))
-    // }
+    
+    const deleteTask = (id) => {
+      setTasks(tasks.filter(note => note.id !== id))
+    }
     
     const handleTaskChange = (event) => {
       setNewTask(event.target.value)
@@ -40,7 +41,7 @@ const App = () => {
           <div className="main-card">
             <TaskForm onSubmit={addTask} 
                     taskValue={newTask} taskChange={handleTaskChange}/>  
-            <TaskList tasks={tasks} onMouseEnter={handleHoverOn} onMouseLeave={handleHoverOff} style={style}/> 
+            <TaskList tasks={tasks} onMouseEnter={handleHoverOn} onMouseLeave={handleHoverOff} deleteTask={deleteTask} style={style}/> 
             <TaskLeft tasks={tasks}/> 
           </div>
         </div>
